@@ -12,13 +12,6 @@ class BooksController < ApplicationController
   def show
   end
   def show
-    @reviews = Review.where(book_id: @book.id).order("Created_at DESC")
-
-    if @reviews.blank? 
-      @avg_review = 0 
-    else 
-      @avg_review = @reviews.average(:rating).round(2)
-    end 
   end
 
   # GET /books/new

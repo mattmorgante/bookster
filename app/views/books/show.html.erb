@@ -15,6 +15,17 @@
   <%= @book.rating %>
 </p>
 
+  <% if @reviews.blank? %> 
+    <%= link_to "Write the first review!", new_book_review_path(@book), class: "btn btn-danger" %>
+  <% else %> 
+    <% @reviews.each do |r| %> 
+      <div class="reviews">
+        <div class="star-rating" data-score= <%= r.rating %> ></div>
+        <p><%= r.comment %></p>
+      </div>
+    <% end %>
+  <% end %> 
+
 <p>
   <strong>Review:</strong>
   <%= @book.review %>
