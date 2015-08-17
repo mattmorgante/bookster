@@ -11,6 +11,15 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
   end
+  def show
+    @reviews = Review.where(book_id: @book.id).order("Created_at DESC")
+
+    if @reviews.blank? 
+      @avg_review = 0 
+    else 
+      @avg_review = @reviews.average(:rating).round(2)
+    end 
+  end
 
   # GET /books/new
   def new
@@ -69,6 +78,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :rating, :review)
+      params.require(:book).permit(:title, :author, :rating, :review, :image)
     end
 end

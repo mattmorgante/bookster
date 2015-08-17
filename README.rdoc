@@ -1,2 +1,8 @@
 Add text field to review model 
 Where are reviews stored? 
+Book should have a picture, then title, then author name
+Then ratings and reviews 
+Look at how your WELP application is made
+
+RATY for reviews
+Paperclip for images
